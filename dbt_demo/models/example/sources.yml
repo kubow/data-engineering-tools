@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: business_data
+    description: "Source datasets for purchase, product, and customer insights."
+    database: mydb
+    schema: main
+    tables:
+      - name: customer_profile
+        description: "Customer profile dataset containing demographic and preference data."
+      - name: purchase_history
+        description: "Purchase dataset with order and revenue details."
+      - name: product
+        description: "Product dataset with product descriptions and categories."
