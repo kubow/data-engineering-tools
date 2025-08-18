@@ -12,21 +12,21 @@ WITH customer_revenue AS (
         c.customer_id,
         CONCAT(c.first_name, ' ', c.last_name) AS customer_name,
         SUM(s.total_amount) AS total_revenue
-    FROM 
-        {{ source('business_data', 'purchase_history') }} s
-    JOIN 
-        {{ source('business_data', 'customer_profile') }} c
-    ON 
+    FROM
+        {{ source('business_data', 'purchase_history_dataset') }} s
+    JOIN
+        {{ source('business_data', 'customer_profile_dataset') }} c
+    ON
         s.customer_id = c.customer_id
-    GROUP BY 
+    GROUP BY
         c.customer_id, c.first_name, c.last_name
 )
-SELECT 
+SELECT
     customer_id,
     customer_name,
     total_revenue
-FROM 
+FROM
     customer_revenue
-ORDER BY 
+ORDER BY
     total_revenue DESC
 LIMIT 100

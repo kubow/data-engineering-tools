@@ -6,21 +6,21 @@ WITH product_orders AS (
         p.product_id,
         p.product_name,
         COUNT(s.purchase_id) AS total_orders
-    FROM 
-        {{ source('business_data', 'purchase_history') }} s
-    JOIN 
-        {{ source('business_data', 'product') }} p
-    ON 
+    FROM
+        {{ source('business_data', 'purchase_history_dataset') }} s
+    JOIN
+        {{ source('business_data', 'products_dataset') }} p
+    ON
         s.product_id = p.product_id
-    GROUP BY 
+    GROUP BY
         p.product_id, p.product_name
 )
-SELECT 
+SELECT
     product_id,
     product_name,
     total_orders
-FROM 
+FROM
     product_orders
-ORDER BY 
+ORDER BY
     total_orders DESC
 LIMIT 10
