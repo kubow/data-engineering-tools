@@ -35,3 +35,9 @@ python -m pip install --upgrade pip  # latest pip
 cd dagster_demo
 dagster dev
 ```
+
+## Airflow demo ()
+
+```shell
+AIRFLOW_HOME="$PWD/airflow_demo" airflow standalone
+```
