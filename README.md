@@ -2,11 +2,24 @@
 ## Project Init
 
 ```shell
-python -m venv venv
-source venv/bin/activate
-pip install pip-tools
-pip-compile --upgrade --strip-extras requirements.in  # generate latest requirements.txt
-pip install -r requirements.txt  # install dependencies
+The scenarios use separate virtual environments because Airflow and recent
+Prefect releases require incompatible SQLAlchemy major versions. The old
+combined `requirements.in`/`requirements.txt` files are kept for comparison;
+new scenario-specific inputs live under `requirements/`.
+
+```shell
+make dbt       # creates .venv/dbt and runs dbt
+make dlt       # creates .venv/dlt and runs dlt
+make prefect   # creates .venv/prefect and runs the Prefect flow
+make airflow   # creates .venv/airflow and starts Airflow
+make dagster   # creates .venv/dagster and starts Dagster
+```
+
+Dagster uses its own Python 3.14 environment. Its dbt build asset invokes the
+separate `.venv/dbt` environment because the `dagster-dbt` integration family
+does not currently provide a compatible Python 3.14 release. The other
+scenarios can also use Python 3.14. `make lock-all` regenerates
+the five scenario lockfiles without installing them.
 ```
 
 1. Ensure you have duckDB source defined in `dbt_demo` profiles
@@ -39,5 +52,21 @@ dagster dev
 ## Airflow demo ()
 
 ```shell
-AIRFLOW_HOME="$PWD/airflow_demo" airflow standalone
+make airflow
+```
+
+
+## [Prefect](https://www.prefect.io/) demo ()
+
+```shell
+make prefect
+# or, for the local Prefect UI/API:
+make prefect-server
+```
+
+
+## [dlt](https://dlthub.com/) demo ()
+
+```shell
+python dlt_demo/load_csv.py
 ```

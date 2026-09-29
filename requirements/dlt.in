@@ -1,0 +1,3 @@
+# dlt scenario
+dlt[duckdb]>=1.0.0
+pandas>=2.3.0

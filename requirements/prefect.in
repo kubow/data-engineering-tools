@@ -1,0 +1,4 @@
+# Prefect scenario. dbt is included because prefect_demo/flow.py invokes dbt.
+prefect>=3.0.0
+dbt-core==1.12.5
+dbt-duckdb==1.11.0

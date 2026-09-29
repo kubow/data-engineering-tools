@@ -1,0 +1,5 @@
+# Dagster control-plane scenario for Python 3.14.
+dagster==1.13.24
+dagster-duckdb==0.29.24
+dagster-webserver==1.13.24
+pandas>=2.3.0
