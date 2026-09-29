@@ -138,6 +138,7 @@ celerybeat.pid
 .env
 .envrc
 .venv
+.airflow/
 env/
 venv/
 ENV/
@@ -216,3 +217,6 @@ airflow.cfg
 unittests.cfg
 webserver_config.py
 simple_auth_manager_passwords.json.generated
+
+# dlt local destination
+csv2duckdb.duckdb
