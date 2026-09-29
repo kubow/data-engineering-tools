@@ -1,0 +1,25 @@
+.gitignore
+  s_0be12421ba00c0::t_bb15ef35b24317 220-222
+  s_0be12421ba00c0::t_9876a6aa2599fa 141
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a5a8684671970328f8043932f7dead9f8222ebc2",
+  "prompts": {},
+  "humans": {
+    "h_0907ec034f4a17": {
+      "author": "kubow <kube.kubow@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0be12421ba00c0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0e783-0222-7c22-b1df-892de2fa4404",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "kubow <kube.kubow@gmail.com>"
+    }
+  }
+}
