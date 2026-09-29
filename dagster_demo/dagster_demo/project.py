@@ -1,8 +1,5 @@
 from pathlib import Path
 
-from dagster_dbt import DbtProject
-
-dbt_demo_project = DbtProject(
-    project_dir=Path(__file__).joinpath("..", "..", "..", "dbt_demo").resolve(),
-    packaged_project_dir=Path(__file__).joinpath("..", "..", "dbt-project").resolve(),
-)
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DBT_PROJECT_DIR = REPO_ROOT / "dbt_demo"
+DBT_EXECUTABLE = REPO_ROOT / ".venv" / "dbt" / "bin" / "dbt"

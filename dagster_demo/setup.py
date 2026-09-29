@@ -12,9 +12,6 @@ setup(
     install_requires=[
         "dagster",
         "dagster-cloud",
-        "dagster-dbt",
-        "dbt-duckdb<1.10",
-        "dbt-duckdb<1.10",
     ],
     extras_require={
         "dev": [
